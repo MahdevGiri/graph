@@ -54,7 +54,6 @@ int main() {
     graph.outputGraph();
 
 
-    cout<<endl<<endl;
    Graph graph1(9);
    graph1.addEdge(0,1);
     graph1.addEdge(0,2);

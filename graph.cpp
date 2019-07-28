@@ -54,7 +54,7 @@ void Graph::outputGraph() {
 
 
 bool Graph::addEdge(int source, int destination) {
-    //add edge
+
     matrix[source][destination]=1;
     return true;
 }
