@@ -38,9 +38,6 @@ public:
     void add_vertex(vertex* aVertex);
     void add_edge(int fromVertex, int toVertex, int weight=-1);
     int index_is(vertex *aVertex);
-
-
-
-};
+    int getNumEdges();
 
 #endif //GRAPH_GRAPH_H

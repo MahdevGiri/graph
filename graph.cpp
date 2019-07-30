@@ -64,9 +64,13 @@ int Graph::index_is(vertex *aVertex) {
         i++;
     }
     return -1;
-
 }
 
+int Graph::getNumEdges()
+{
+    return numEdges;
+
+}
 
 
 
