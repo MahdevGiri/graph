@@ -148,3 +148,24 @@ void Graph::BFS(vertex* aVertex)
     }
 }
 
+void Graph::DFS(vertex* aVertex)
+{
+    clear_marks();
+    int ix,ix2;
+    if (aVertex == NULL) return;
+
+    cout << aVertex->title << " ";
+    ix = index_is(aVertex);
+    marks[ix] = true;
+
+    for (int i=0; i<nmbVertices; i++)
+    {
+        ix2 = index_is(vertices[i]);
+        if (edges[ix][ix2] != NULL_EDGE)	// if adj vertex
+        {
+            if (marks[i] == false)
+                DFS(vertices[i]);
+        }
+    }
+}
+

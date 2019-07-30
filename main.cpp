@@ -46,7 +46,7 @@ int main() {
 
 
     // Print Depth first Search Graph Traversal
-    graph.clear_marks();
+
     graph.DFS(root);
 
     cout << endl;

@@ -51,6 +51,7 @@ public:
     void outputDirectedGraph();
     void mark_vertex(vertex* aVertex);
     void BFS(vertex* aVertex);
+    void DFS(vertex* aVertex);
 
 };
 #endif //GRAPH_GRAPH_H
