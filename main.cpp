@@ -13,7 +13,7 @@ int main() {
     Graph graph(6);
     vertex* root;
     vertex* pVertex;
-    vertex* pVertex4;
+    vertex* pVertex3;
 
 
     /* create the following graph in memory, position of the * represents the direction of edges
@@ -36,11 +36,11 @@ int main() {
     graph.add_vertex(pVertex);
     pVertex = new vertex("2");		// 2
     graph.add_vertex(pVertex);
-    pVertex = new vertex("3");		// 3
-    graph.add_vertex(pVertex);
+    pVertex3 = new vertex("3");		// 3
+    graph.add_vertex(pVertex3);
 
-    pVertex4 = new vertex("4");		// 4
-    graph.add_vertex(pVertex4);
+    pVertex = new vertex("4");		// 4
+    graph.add_vertex(pVertex);
     pVertex = new vertex("5");		// 5
     graph.add_vertex(pVertex);
 
@@ -52,16 +52,25 @@ int main() {
     graph.add_edge(2, 3, 5);
     graph.add_edge(2, 5, 2);
     graph.add_edge(4, 5, 7);
+    // Print BFS Graph Traversal
+    graph.clear_marks();
+    graph.BFS(root);
 
-   graph.delete_vertex(pVertex4);
-   bool check=graph.isConnected(root);
+    cout<<endl<<endl;
+
+    //graph.deleteEdge(1,2,8);
+    graph.deleteEdge(2,3,5);
+   bool check=graph.isConnected(pVertex);
   if (check)
    {
-      cout<<"Connected";
+      cout<<"Connected"<<endl;
    }
+  else
+  {
+      cout<<"Not connected"<<endl;
+  }
    //cout<<graph.isConnected(pVertex)<<endl;
-    //graph.deleteEdge(1,2,8);
-    //graph.deleteEdge(4,5,7);
+
 
     // Print Depth first Search Graph Traversal
 
@@ -71,11 +80,7 @@ int main() {
     cout << endl;
 
 
-    // Print BFS Graph Traversal
-    graph.clear_marks();
-    graph.BFS(root);
 
-    cout<<endl<<endl;
 
 
 

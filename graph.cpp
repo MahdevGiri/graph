@@ -241,6 +241,7 @@ bool Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
 }
 bool Graph::isConnected(vertex* aVertex)
 {
+    bool connected = false;
     int ix, ix2;
     queue <vertex*> que;
     ix = index_is(aVertex);
@@ -252,12 +253,13 @@ bool Graph::isConnected(vertex* aVertex)
         vertex* node = que.front();
         que.pop();
         ix = index_is(node);
-        cout << node->title << " ";
+       // cout << node->title << " ";
         for (int i=0; i<nmbVertices; i++)
         {
             ix2 = index_is(vertices[i]);
             if (edges[ix][ix2] != NULL_EDGE)	// if adj vertex
             {
+                connected =true;
                 if (marks[i] == false)
                 {
                     marks[i] = true;
@@ -267,4 +269,5 @@ bool Graph::isConnected(vertex* aVertex)
         }
     }
 
+    return connected;
 }
