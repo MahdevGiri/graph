@@ -5,7 +5,7 @@ int main() {
     Graph graph(6);
     vertex* root;
     vertex* pVertex;
-    vertex* pVertex3;
+    vertex* pVertex4;
 
 
     /* create the following graph in memory, position of the * represents the direction of edges
@@ -31,8 +31,8 @@ int main() {
     pVertex = new vertex("3");		// 3
     graph.add_vertex(pVertex);
 
-    pVertex3 = new vertex("4");		// 4
-    graph.add_vertex(pVertex3);
+    pVertex4 = new vertex("4");		// 4
+    graph.add_vertex(pVertex4);
     pVertex = new vertex("5");		// 5
     graph.add_vertex(pVertex);
 
@@ -45,7 +45,7 @@ int main() {
     graph.add_edge(2, 5, 2);
     graph.add_edge(4, 5, 7);
 
-   graph.delete_vertex(pVertex3);
+   graph.delete_vertex(pVertex4);
     //graph.deleteEdge(2,3,5);
 
 

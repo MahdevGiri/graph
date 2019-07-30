@@ -44,26 +44,29 @@ bool Graph::add_vertex(vertex *aVertex) {
 
 }
 
-void Graph::add_edge(int fromVertex, int toVertex, int weight) {
+bool Graph::add_edge(int fromVertex, int toVertex, int weight) {
+    bool done =false;
     int row;
     int column;
 
     row = index_is(vertices[fromVertex]);
     column = index_is(vertices[toVertex]);
-    if(weight==-1)
+    if(edges[row][column]==0)
     {
-        edges[row][column] = 1; // directed unweighted graph
+        if(weight==-1)    // directed unweighted graph
+        {
+            edges[row][column] = 1;
+        }
+
+        else   // for the undirected  weighted graph
+        {
+            edges[row][column] = weight;
+            edges[column][row] =weight;
+        }
+        numEdges++;
+        done = true;
     }
-
-    else
-    {
-        // for the undirected  weighted graph
-        edges[row][column] = weight;
-        edges[column][row] =weight;
-    }
-
-
-    numEdges++;
+    return done;
 
 }
 
@@ -208,7 +211,7 @@ bool Graph::delete_vertex(vertex *aVertex) {
 
 }
 
-/*void Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
+/*bool Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
     int row;
     int column;
 

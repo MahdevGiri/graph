@@ -38,7 +38,7 @@ public:
 
     bool add_vertex(vertex *aVertex);
 
-    void add_edge(int fromVertex, int toVertex, int weight = -1);
+    bool add_edge(int fromVertex, int toVertex, int weight = -1);
 
     int index_is(vertex *aVertex);
 
@@ -55,7 +55,7 @@ public:
     void DFS(vertex* aVertex);
     void  clear_marks();
 
-    //void deleteEdge(int fromVertex, int toVertex,int weight=-1);
+   // bool deleteEdge(int fromVertex, int toVertex,int weight=-1);
     bool delete_vertex(vertex *aVertex);
 
 
