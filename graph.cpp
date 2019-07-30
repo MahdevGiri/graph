@@ -105,3 +105,9 @@ void Graph::outputDirectedGraph() {
 
 }
 
+void Graph::mark_vertex(vertex* aVertex)
+{
+    int ix = index_is(aVertex);
+    marks[ix] = true;
+}
+

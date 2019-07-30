@@ -64,7 +64,7 @@ int main() {
 
     cout<<endl;
     cout<<"Vertex is: "<<graph.getNumVertices()<<endl;
-    cout<<"Edges is: "<<graph.getNumEdges()<<endl;
+    cout<<"Edges is: "<<graph.getNumEdges()<<endl<<endl;
 
 
 

@@ -48,5 +48,6 @@ public:
 
     void outputWeightedGraph();
     void outputDirectedGraph();
+    void mark_vertex(vertex* aVertex);
 };
 #endif //GRAPH_GRAPH_H
