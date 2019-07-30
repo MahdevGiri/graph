@@ -118,3 +118,33 @@ void Graph:: clear_marks()
         marks[i] = false;
 }
 
+void Graph::BFS(vertex* aVertex)
+{
+    clear_marks();
+    int ix, ix2;
+    queue <vertex*> que;
+    ix = index_is(aVertex);
+    marks[ix] = true;
+    que.push(aVertex);
+
+    while (!que.empty())
+    {
+        vertex* node = que.front();
+        que.pop();
+        ix = index_is(node);
+        cout << node->title << " ";
+        for (int i=0; i<nmbVertices; i++)
+        {
+            ix2 = index_is(vertices[i]);
+            if (edges[ix][ix2] != NULL_EDGE)	// if adj vertex
+            {
+                if (marks[i] == false)
+                {
+                    marks[i] = true;
+                    que.push(vertices[i]);
+                }
+            }
+        }
+    }
+}
+

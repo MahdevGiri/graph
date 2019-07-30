@@ -52,7 +52,7 @@ int main() {
     cout << endl;
 
     // Print BFS Graph Traversal
-    graph.clear_marks();
+
     graph.BFS(root);
 
     cout<<endl<<endl;
