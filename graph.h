@@ -10,6 +10,7 @@ of the graph.
 #define GRAPH_GRAPH_H
 
 #include <iostream>
+#include<fstream>
 #include <vector>
 #include <string>
 #include <queue>
