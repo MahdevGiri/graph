@@ -241,6 +241,7 @@ bool Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
 }
 bool Graph::isConnected(vertex* aVertex)
 {
+    clear_marks();
     bool connected = false;
     int ix, ix2;
     queue <vertex*> que;
@@ -271,3 +272,5 @@ bool Graph::isConnected(vertex* aVertex)
 
     return connected;
 }
+
+

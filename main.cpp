@@ -10,41 +10,32 @@ of the graph.
 
 int main() {
 
-    Graph graph(6);
-    vertex* root;
-    vertex* pVertex;
-    vertex* pVertex3;
-
-
-    /* create the following graph in memory, position of the * represents the direction of edges
-       e.g  Edges are as following in the graph represented in the Adjacency Matrix A->B, A->C, B->D, D->C
-
-                (A)
-               /   \
-              *     *
-             (B)   (C)
-              \     *
-               *   /
-                (D)
-
-    */
+    cout<<"*********************TESTING****************************"<<endl;
+    cout<<"*********************GRAPH01.DAT************************"<<endl;
+    int size =6;  //size = number of lines in file
+    Graph graph(size);
+    vertex* vertices[size];
 
     // Add vertices in memory
-    root = new vertex("0");			// 0
-    graph.add_vertex(root);
-    pVertex = new vertex("1");		// 1
-    graph.add_vertex(pVertex);
-    pVertex = new vertex("2");		// 2
-    graph.add_vertex(pVertex);
-    pVertex3 = new vertex("3");		// 3
-    graph.add_vertex(pVertex3);
+    cout<<"Adding the vertices "<<endl;
 
-    pVertex = new vertex("4");		// 4
-    graph.add_vertex(pVertex);
-    pVertex = new vertex("5");		// 5
-    graph.add_vertex(pVertex);
+    vertices[0] = new vertex("0");	//0
+    graph.add_vertex(vertices[0]);
+    vertices[1] = new vertex("1");	//1
+    graph.add_vertex(vertices[1]);
+    vertices[2] = new vertex("2");	//2
+    graph.add_vertex(vertices[2]);
+    vertices[3] = new vertex("3");	//3
+    graph.add_vertex(vertices[3]);
+    vertices[4] = new vertex("4");	//4
+    graph.add_vertex(vertices[4]);
+    vertices[5] = new vertex("5");	//5
+    graph.add_vertex(vertices[5]);
 
 
+    cout<<size<<" vetices added "<<endl<<endl;
+
+    cout<<"Adding edges "<<endl;
     graph.add_edge(0, 1, 9);
     graph.add_edge(0, 4, 1);
     graph.add_edge(1, 2, 8);
@@ -52,52 +43,102 @@ int main() {
     graph.add_edge(2, 3, 5);
     graph.add_edge(2, 5, 2);
     graph.add_edge(4, 5, 7);
-    // Print BFS Graph Traversal
-    graph.clear_marks();
-    graph.BFS(root);
-
-    cout<<endl<<endl;
-
-    //graph.deleteEdge(1,2,8);
-    graph.deleteEdge(2,3,5);
-   bool check=graph.isConnected(pVertex);
-  if (check)
-   {
-      cout<<"Connected"<<endl;
-   }
-  else
-  {
-      cout<<"Not connected"<<endl;
-  }
-   //cout<<graph.isConnected(pVertex)<<endl;
-
-
-    // Print Depth first Search Graph Traversal
-
-    graph.clear_marks();
-    graph.DFS(root);
-
-    cout << endl;
-
-
-
-
-
-
-
-
-
-
-
-    //cout<<"weight is: "<<graph.weight_is(1,0)<<endl;
-
-    //cout<<"Index is: "<<graph.index_is(pVertex)<<endl;
+    cout<<"7 edges added "<<endl<<endl;
 
     graph.outputWeightedGraph();
+    cout<<endl;
 
-    cout<<endl<<endl;
-    cout<<"Vertex is: "<<graph.getNumVertices()<<endl;
-    cout<<"Edges is: "<<graph.getNumEdges()<<endl<<endl;
+    cout<<"Breadth first traversal staring from the first vertex"<<endl;
+    graph.clear_marks();
+    graph.BFS(vertices[0]);
+    cout<<"Breadth first traversal done"<<endl<<endl;
+
+    cout<<"Breadth first traversal staring from the third vertex"<<endl;
+    graph.clear_marks();
+    graph.BFS(vertices[2]);
+    cout<<"Breadth first traversal done"<<endl<<endl;
+
+
+    cout<<"Depth first traversal staring from the first vertex"<<endl;
+    graph.clear_marks();
+    graph.DFS(vertices[0]);
+    cout<<"Depthth first traversal done"<<endl<<endl;
+
+    cout<<"Depth first traversal staring from the fourth vertex"<<endl;
+    graph.clear_marks();
+    graph.DFS(vertices[3]);
+    cout<<"Depth first traversal done"<<endl<<endl;
+
+    cout<<"Number of vertex is: "<<graph.getNumVertices()<<endl;
+    cout<<"Number of edge is: "<<graph.getNumEdges()<<endl<<endl;
+
+  cout<<"Delete the edge from 2 to 3 with weight 5"<<endl;
+    bool test = graph.deleteEdge(2,3,5);
+    if(test)
+    {
+        cout<<"Deleted"<<endl;
+    }
+    else
+    {
+        cout<<" Not Deleted"<<endl;
+    }
+    cout<<endl;
+
+    cout<<"Number of vertex is: "<<graph.getNumVertices()<<endl;
+    cout<<"Number of edge is: "<<graph.getNumEdges()<<endl<<endl;
+
+    cout<<"Check if the vertex(3) is connected after deletion"<<endl;
+    bool check=graph.isConnected(vertices[3]);
+   if (check)
+    {
+       cout<<"Connected"<<endl;
+    }
+   else
+   {
+      cout<<"Not connected"<<endl;
+   }
+   cout<<endl;
+
+    cout<<"Breadth first traversal staring from the first vertex after deletion of edge"<<endl;
+    graph.clear_marks();
+    graph.BFS(vertices[0]);
+    cout<<"Breadth first traversal done"<<endl<<endl;
+
+    cout<<"Depth first traversal staring from the first vertex after deletion of the edge"<<endl;
+    graph.clear_marks();
+    graph.DFS(vertices[0]);
+    cout<<"Depthth first traversal done"<<endl<<endl;
+
+    cout<<"Delete the vertex  5 "<<endl;
+     test = graph.delete_vertex(vertices[5]);
+    if(test)
+    {
+        cout<<"Deleted"<<endl;
+    }
+    else
+    {
+        cout<<" Not Deleted"<<endl;
+    }
+    cout<<endl;
+
+    cout<<"Number of vertex is: "<<graph.getNumVertices()<<endl;
+    cout<<"Number of edge is: "<<graph.getNumEdges()<<endl<<endl;
+
+    cout<<"Breadth first traversal staring from the first vertex after deletion of vertex(2)"<<endl;
+    graph.clear_marks();
+    graph.BFS(vertices[0]);
+    cout<<"Breadth first traversal done"<<endl<<endl;
+
+    cout<<"Depth first traversal staring from the first vertex after deletion of vertex(2)"<<endl;
+    graph.clear_marks();
+    graph.DFS(vertices[0]);
+    cout<<"Depthth first traversal done"<<endl<<endl;
+
+   cout << endl;
+
+
+
+   cout<<endl<<endl<<endl<<endl;
 
 
 
@@ -172,7 +213,8 @@ int main() {
     cout<<"Vertex is: "<<graph1.getNumVertices()<<endl;
     cout<<"Edges is: "<<graph1.getNumEdges()<<endl;
 
-    vertex* root3;
+
+
 
 
     return 0;

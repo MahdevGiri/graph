@@ -27,7 +27,7 @@ public:
 
 class Graph {
 private:
-    static const int NULL_EDGE = 0;
+    const int NULL_EDGE = 0;
     vector<vertex *> vertices;
     vector<bool> marks;            // marks[i] is mark for vertices[i]
     int nmbVertices;
@@ -66,6 +66,7 @@ public:
     bool deleteEdge(int fromVertex, int toVertex,int weight=-1);
     bool delete_vertex(vertex *aVertex);
     bool isConnected(vertex* aVertex);
+
 
 
 };
