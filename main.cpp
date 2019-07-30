@@ -128,7 +128,7 @@ int main() {
     graph1.clear_marks();
     graph1.BFS(root1);
 
-    cout<<endl<<endl;
+    cout<<endl;
     cout<<"weight is: "<<graph1.weight_is(1,0)<<endl;
 
     cout<<"Index is: "<<graph1.index_is(pVertex1)<<endl;

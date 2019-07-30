@@ -94,3 +94,14 @@ void Graph::outputWeightedGraph() {
 
 }
 
+void Graph::outputDirectedGraph() {
+    cout<<"Graph: (Adjacency Matrix)"<<endl;
+    for (int i = 0; i < maxVertices; i++) {
+        for (int j = 0; j < maxVertices; j++) {
+            cout << edges[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+}
+
