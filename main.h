@@ -1,4 +1,10 @@
-
+/***********************************************
+Name: Mahesh Giri
+Assignment: Final project
+Purpose: This program will create a graph class/object with the file passed with adjacency matrix for either an
+undirected weighted graph or directed weighted graph.It will demonstrate complete testing and full functionality
+of the graph.
+************************************************/
 
 #ifndef GRAPH_MAIN_H
 #define GRAPH_MAIN_H

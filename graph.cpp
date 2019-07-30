@@ -1,3 +1,10 @@
+/***********************************************
+Name: Mahesh Giri
+Assignment: Final project
+Purpose: This program will create a graph class/object with the file passed with adjacency matrix for either an
+undirected weighted graph or directed weighted graph.It will demonstrate complete testing and full functionality
+of the graph.
+************************************************/
 
 #include "graph.h"
 
@@ -125,15 +132,7 @@ void Graph::mark_vertex(vertex* aVertex)
     int ix = index_is(aVertex);
     marks[ix] = true;
 }
-/*vertex* Graph::get_unmarked()  /////////////////////////////////
-{
-    for (int i=0; i<nmbVertices; i++)
-    {
-        if (marks[i] == false)
-            return vertices[i];
-    }
-    return NULL;
-}*/
+
 
 void Graph:: clear_marks()
 {
@@ -143,6 +142,7 @@ void Graph:: clear_marks()
 
 void Graph::BFS(vertex* aVertex)
 {
+
     int ix, ix2;
     queue <vertex*> que;
     ix = index_is(aVertex);
@@ -174,7 +174,10 @@ void Graph::DFS(vertex* aVertex)
 {
 
     int ix,ix2;
-    if (aVertex == NULL) return;
+    if (aVertex == NULL)
+    {
+        return;
+    }
 
     cout << aVertex->title << " ";
     ix = index_is(aVertex);
@@ -189,6 +192,7 @@ void Graph::DFS(vertex* aVertex)
                 DFS(vertices[i]);
         }
     }
+
 }
 
 bool Graph::delete_vertex(vertex *aVertex) {
@@ -235,4 +239,32 @@ bool Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
     }
     return done;
 }
+bool Graph::isConnected(vertex* aVertex)
+{
+    int ix, ix2;
+    queue <vertex*> que;
+    ix = index_is(aVertex);
+    marks[ix] = true;
+    que.push(aVertex);
 
+    while (!que.empty())
+    {
+        vertex* node = que.front();
+        que.pop();
+        ix = index_is(node);
+        cout << node->title << " ";
+        for (int i=0; i<nmbVertices; i++)
+        {
+            ix2 = index_is(vertices[i]);
+            if (edges[ix][ix2] != NULL_EDGE)	// if adj vertex
+            {
+                if (marks[i] == false)
+                {
+                    marks[i] = true;
+                    que.push(vertices[i]);
+                }
+            }
+        }
+    }
+
+}

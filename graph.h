@@ -1,7 +1,13 @@
+/***********************************************
+Name: Mahesh Giri
+Assignment: Final project
+Purpose: This program will create a graph class/object with the file passed with adjacency matrix for either an
+undirected weighted graph or directed weighted graph.It will demonstrate complete testing and full functionality
+of the graph.
+************************************************/
 
 #ifndef GRAPH_GRAPH_H
 #define GRAPH_GRAPH_H
-
 
 #include <iostream>
 #include <vector>
@@ -29,18 +35,21 @@ private:
     int numEdges;
     vector<vector<int> > edges;
 
+    //private method
+    int index_is(vertex *aVertex);
+    void mark_vertex(vertex* aVertex);
+
 
 public:
-    // constructor
-    Graph(int size);
 
+    Graph(int size);  // constructor
     ~Graph();
 
     bool add_vertex(vertex *aVertex);
 
     bool add_edge(int fromVertex, int toVertex, int weight = -1);
 
-    int index_is(vertex *aVertex);
+
 
     int getNumEdges();
 
@@ -48,16 +57,15 @@ public:
 
     void outputWeightedGraph();
     void outputDirectedGraph();
-    void mark_vertex(vertex* aVertex);
 
-    //vertex* get_unmarked();
+
     void BFS(vertex* aVertex);
     void DFS(vertex* aVertex);
     void  clear_marks();
 
     bool deleteEdge(int fromVertex, int toVertex,int weight=-1);
     bool delete_vertex(vertex *aVertex);
-
+    bool isConnected(vertex* aVertex);
 
 
 };

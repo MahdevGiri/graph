@@ -1,3 +1,11 @@
+/***********************************************
+Name: Mahesh Giri
+Assignment: Final project
+Purpose: This program will create a graph class/object with the file passed with adjacency matrix for either an
+undirected weighted graph or directed weighted graph.It will demonstrate complete testing and full functionality
+of the graph.
+************************************************/
+
 #include "main.h"
 
 int main() {
@@ -45,11 +53,15 @@ int main() {
     graph.add_edge(2, 5, 2);
     graph.add_edge(4, 5, 7);
 
-   //graph.delete_vertex(pVertex4);
+   graph.delete_vertex(pVertex4);
+   bool check=graph.isConnected(root);
+  if (check)
+   {
+      cout<<"Connected";
+   }
+   //cout<<graph.isConnected(pVertex)<<endl;
     //graph.deleteEdge(1,2,8);
     //graph.deleteEdge(4,5,7);
-
-
 
     // Print Depth first Search Graph Traversal
 
@@ -58,14 +70,23 @@ int main() {
 
     cout << endl;
 
+
     // Print BFS Graph Traversal
     graph.clear_marks();
     graph.BFS(root);
 
     cout<<endl<<endl;
+
+
+
+
+
+
+
+
     //cout<<"weight is: "<<graph.weight_is(1,0)<<endl;
 
-    cout<<"Index is: "<<graph.index_is(pVertex)<<endl;
+    //cout<<"Index is: "<<graph.index_is(pVertex)<<endl;
 
     graph.outputWeightedGraph();
 
@@ -138,7 +159,7 @@ int main() {
     cout<<endl;
    // cout<<"weight is: "<<graph1.weight_is(1,0)<<endl;
 
-    cout<<"Index is: "<<graph1.index_is(pVertex1)<<endl;
+    //cout<<"Index is: "<<graph1.index_is(pVertex1)<<endl;
 
     graph1.outputDirectedGraph();
 
