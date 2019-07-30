@@ -1,63 +1,38 @@
 
-
 #include "graph.h"
 
+Graph::Graph(int size) {
+    nmbVertices = 0;
+    numEdges =0;
+    maxVertices = size;
 
-    Graph::Graph(int val) {
+    vertices.resize(size);
+    for (int i = 0; i < size; i++)    // init vertices
+        vertices[i] = NULL;
 
-    vertex=val;
+    marks.resize(size);
 
-        int i,j;
-        for(i = 0; i < vertex; i++)
-            for(j = 0; j < vertex; j++)
-                matrix[i][j] = 0;
-}
-
-bool Graph::addEdge(int source, int destination,int weight) {
-    //add edge
-    matrix[source][destination]=weight;
-
-    //add bak edge for undirected graph
-    matrix[destination][source] = weight;
-    return true;
+    int rows = size;
+    int columns = size;
+    edges.resize(rows, vector<int>(columns, 0));
 
 }
 
-void Graph::outputGraph() {
-    cout<<"Graph: (Adjacency Matrix)"<<endl;
-    for (int i = 0; i < vertex; i++) {
-        for (int j = 0; j <vertex ; j++) {
-            if(i==j || matrix[i][j]!=0)
-            {
-                cout<<matrix[i][j]<< " ";
-            }
-            else
-            {
-                cout<<"x"<<" ";
-            }
 
-        }
-        cout<<endl;
+
+
+void Graph::add_vertex(vertex *aVertex) {
+    vertices[nmbVertices] = aVertex;
+    for (int i=0; i<maxVertices; i++)
+    {
+        edges[nmbVertices][i] = NULL_EDGE;
+        edges[i][nmbVertices] = NULL_EDGE;
     }
-    for (int i = 0; i < vertex; i++) {
-        cout<<"Vertex " << i << " is connected to:";
-        for (int j = 0; j <vertex ; j++) {
-            if(matrix[i][j]!=0){
-                cout<<j << " ";
-            }
-        }
-        cout<<endl;
-    }
+    nmbVertices++;
 
 }
 
-
-
-bool Graph::addEdge(int source, int destination) {
-
-    matrix[source][destination]=1;
-    return true;
-}
+\
 
 
 
