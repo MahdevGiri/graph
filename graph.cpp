@@ -78,5 +78,19 @@ int Graph::getNumVertices() {
 
 
 
+void Graph::outputWeightedGraph() {
+    cout<<"Graph: (Adjacency Matrix)"<<endl;
+    for (int i = 0; i < maxVertices; i++) {
+        for (int j = 0; j < maxVertices; j++) {
+            if (i == j || edges[i][j] != 0) {
+                cout << edges[i][j] << " ";
+            } else {
+                cout << "x" << " ";
+            }
 
+        }
+        cout << endl;
+    }
+
+}
 

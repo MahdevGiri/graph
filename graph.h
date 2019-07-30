@@ -45,5 +45,7 @@ public:
     int getNumEdges();
 
     int getNumVertices();
+
+    void outputWeightedGraph();
 };
 #endif //GRAPH_GRAPH_H
