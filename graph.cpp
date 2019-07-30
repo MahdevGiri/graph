@@ -27,14 +27,20 @@ Graph::~Graph() {
 
 
 
-void Graph::add_vertex(vertex *aVertex) {
-    vertices[nmbVertices] = aVertex;
-    for (int i=0; i<maxVertices; i++)
+bool Graph::add_vertex(vertex *aVertex) {
+    bool done =false;
+    if(nmbVertices<=maxVertices)
     {
-        edges[nmbVertices][i] = NULL_EDGE;
-        edges[i][nmbVertices] = NULL_EDGE;
+        vertices[nmbVertices] = aVertex;
+        for (int i=0; i<maxVertices; i++)
+        {
+            edges[nmbVertices][i] = NULL_EDGE;
+            edges[i][nmbVertices] = NULL_EDGE;
+        }
+        nmbVertices++;
+        done =true;
     }
-    nmbVertices++;
+    return done;
 
 }
 
@@ -182,17 +188,23 @@ void Graph::DFS(vertex* aVertex)
     }
 }
 
-void Graph::delete_vertex(vertex *aVertex) {
+bool Graph::delete_vertex(vertex *aVertex) {
 
-    int ix = index_is(aVertex);
-    marks[ix] = false;
-
-    for (int i=0; i<maxVertices; i++)
+    bool done =false;
+    if(nmbVertices!=0)
     {
-       edges[ix][i] = NULL_EDGE;
-       edges[i][ix] = NULL_EDGE;
+        int ix = index_is(aVertex);
+        marks[ix] = false;
+
+        for (int i=0; i<maxVertices; i++)
+        {
+            edges[ix][i] = NULL_EDGE;
+            edges[i][ix] = NULL_EDGE;
+        }
+        nmbVertices--;
+        done =true;
     }
-    nmbVertices--;
+    return done;
 
 }
 

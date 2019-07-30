@@ -36,7 +36,7 @@ public:
 
     ~Graph();
 
-    void add_vertex(vertex *aVertex);
+    bool add_vertex(vertex *aVertex);
 
     void add_edge(int fromVertex, int toVertex, int weight = -1);
 
@@ -56,7 +56,8 @@ public:
     void  clear_marks();
 
     //void deleteEdge(int fromVertex, int toVertex,int weight=-1);
-    void delete_vertex(vertex *aVertex);
+    bool delete_vertex(vertex *aVertex);
+
 
 
 };
