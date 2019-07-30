@@ -33,11 +33,17 @@ private:
 public:
     // constructor
     Graph(int size);
+
     ~Graph();
 
-    void add_vertex(vertex* aVertex);
-    void add_edge(int fromVertex, int toVertex, int weight=-1);
+    void add_vertex(vertex *aVertex);
+
+    void add_edge(int fromVertex, int toVertex, int weight = -1);
+
     int index_is(vertex *aVertex);
+
     int getNumEdges();
 
+    int getNumVertices();
+};
 #endif //GRAPH_GRAPH_H

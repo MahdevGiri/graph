@@ -72,6 +72,10 @@ int Graph::getNumEdges()
 
 }
 
+int Graph::getNumVertices() {
+    return nmbVertices;
+}
+
 
 
 
