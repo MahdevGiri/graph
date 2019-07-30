@@ -18,6 +18,12 @@ Graph::Graph(int size) {
 
 }
 
+Graph::~Graph() {
+    for (int i = 0; i < nmbVertices; i++) {
+        delete vertices[i];
+    }
+}
+
 
 
 
@@ -110,7 +116,15 @@ void Graph::mark_vertex(vertex* aVertex)
     int ix = index_is(aVertex);
     marks[ix] = true;
 }
-
+/*vertex* Graph::get_unmarked()  /////////////////////////////////
+{
+    for (int i=0; i<nmbVertices; i++)
+    {
+        if (marks[i] == false)
+            return vertices[i];
+    }
+    return NULL;
+}*/
 
 void Graph:: clear_marks()
 {
@@ -120,7 +134,6 @@ void Graph:: clear_marks()
 
 void Graph::BFS(vertex* aVertex)
 {
-    clear_marks();
     int ix, ix2;
     queue <vertex*> que;
     ix = index_is(aVertex);
@@ -150,7 +163,7 @@ void Graph::BFS(vertex* aVertex)
 
 void Graph::DFS(vertex* aVertex)
 {
-    clear_marks();
+
     int ix,ix2;
     if (aVertex == NULL) return;
 
@@ -168,4 +181,41 @@ void Graph::DFS(vertex* aVertex)
         }
     }
 }
+
+void Graph::delete_vertex(vertex *aVertex) {
+
+    int ix = index_is(aVertex);
+    marks[ix] = false;
+
+    for (int i=0; i<maxVertices; i++)
+    {
+       edges[ix][i] = NULL_EDGE;
+       edges[i][ix] = NULL_EDGE;
+    }
+    nmbVertices--;
+
+}
+
+/*void Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
+    int row;
+    int column;
+
+    row = index_is(vertices[fromVertex]);
+    column = index_is(vertices[toVertex]);
+    if(weight==-1)
+    {
+        edges[row][column] = 0; // directed unweighted graph
+    }
+
+    else
+    {
+        // for the undirected  weighted graph
+        edges[row][column] = -1;
+        edges[column][row] =-1;
+    }
+
+
+    numEdges--;
+
+}*/
 

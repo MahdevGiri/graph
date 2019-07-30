@@ -9,11 +9,10 @@
 #include <queue>
 using namespace std;
 
-class vertex
+struct vertex
 {
 public:
     string title;
-
     vertex(string name)
     {
         title = name;
@@ -29,7 +28,7 @@ private:
     int maxVertices;
     int numEdges;
     vector<vector<int> > edges;
-    void  clear_marks();
+
 
 public:
     // constructor
@@ -50,8 +49,15 @@ public:
     void outputWeightedGraph();
     void outputDirectedGraph();
     void mark_vertex(vertex* aVertex);
+
+    //vertex* get_unmarked();
     void BFS(vertex* aVertex);
     void DFS(vertex* aVertex);
+    void  clear_marks();
+
+    //void deleteEdge(int fromVertex, int toVertex,int weight=-1);
+    void delete_vertex(vertex *aVertex);
+
 
 };
 #endif //GRAPH_GRAPH_H
