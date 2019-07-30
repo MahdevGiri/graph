@@ -211,26 +211,28 @@ bool Graph::delete_vertex(vertex *aVertex) {
 
 }
 
-/*bool Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
+bool Graph::deleteEdge(int fromVertex, int toVertex,int weight) {
+    bool done =false;
     int row;
     int column;
 
     row = index_is(vertices[fromVertex]);
     column = index_is(vertices[toVertex]);
-    if(weight==-1)
+    if(edges[row][column]!=0)
     {
-        edges[row][column] = 0; // directed unweighted graph
+        if(weight==-1)    // directed unweighted graph
+        {
+            edges[row][column] = 0;
+        }
+
+        else   // for the undirected  weighted graph
+        {
+            edges[row][column] = 0;
+            edges[column][row] =0;
+        }
+        numEdges--;
+        done = true;
     }
-
-    else
-    {
-        // for the undirected  weighted graph
-        edges[row][column] = -1;
-        edges[column][row] =-1;
-    }
-
-
-    numEdges--;
-
-}*/
+    return done;
+}
 

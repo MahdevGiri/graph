@@ -45,8 +45,9 @@ int main() {
     graph.add_edge(2, 5, 2);
     graph.add_edge(4, 5, 7);
 
-   graph.delete_vertex(pVertex4);
-    //graph.deleteEdge(2,3,5);
+   //graph.delete_vertex(pVertex4);
+    //graph.deleteEdge(1,2,8);
+    //graph.deleteEdge(4,5,7);
 
 
 

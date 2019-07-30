@@ -55,7 +55,7 @@ public:
     void DFS(vertex* aVertex);
     void  clear_marks();
 
-   // bool deleteEdge(int fromVertex, int toVertex,int weight=-1);
+    bool deleteEdge(int fromVertex, int toVertex,int weight=-1);
     bool delete_vertex(vertex *aVertex);
 
 
