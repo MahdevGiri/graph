@@ -32,7 +32,42 @@ void Graph::add_vertex(vertex *aVertex) {
 
 }
 
-\
+void Graph::add_edge(int fromVertex, int toVertex, int weight) {
+    int row;
+    int column;
+
+    row = index_is(vertices[fromVertex]);
+    column = index_is(vertices[toVertex]);
+    if(weight==-1)
+    {
+        edges[row][column] = 1; // directed unweighted graph
+    }
+
+    else
+    {
+        // for the undirected  weighted graph
+        edges[row][column] = weight;
+        edges[column][row] =weight;
+    }
+
+
+    numEdges++;
+
+}
+
+int Graph::index_is(vertex *aVertex) {
+    int i = 0;
+    while (i < nmbVertices)
+    {
+        if (vertices[i] == aVertex)
+            return i;
+        i++;
+    }
+    return -1;
+
+}
+
+
 
 
 
