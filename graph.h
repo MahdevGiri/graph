@@ -29,6 +29,7 @@ private:
     int maxVertices;
     int numEdges;
     vector<vector<int> > edges;
+    void  clear_marks();
 
 public:
     // constructor
@@ -49,5 +50,6 @@ public:
     void outputWeightedGraph();
     void outputDirectedGraph();
     void mark_vertex(vertex* aVertex);
+
 };
 #endif //GRAPH_GRAPH_H

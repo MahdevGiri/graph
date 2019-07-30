@@ -62,7 +62,7 @@ int main() {
 
     graph.outputWeightedGraph();
 
-    cout<<endl;
+    cout<<endl<<endl;
     cout<<"Vertex is: "<<graph.getNumVertices()<<endl;
     cout<<"Edges is: "<<graph.getNumEdges()<<endl<<endl;
 

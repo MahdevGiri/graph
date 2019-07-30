@@ -111,3 +111,10 @@ void Graph::mark_vertex(vertex* aVertex)
     marks[ix] = true;
 }
 
+
+void Graph:: clear_marks()
+{
+    for (int i=0;i<maxVertices;i++)
+        marks[i] = false;
+}
+
